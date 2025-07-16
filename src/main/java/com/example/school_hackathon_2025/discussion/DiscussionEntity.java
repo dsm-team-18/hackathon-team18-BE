@@ -18,10 +18,13 @@ public class DiscussionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 20)
+    public String writer;
+
+    @Column(nullable = false, length = 100)
     public String title;
 
-    @Column(length = 300)
+    @Column(length = 1000)
     public String content;
 
     @Column(nullable = false)
