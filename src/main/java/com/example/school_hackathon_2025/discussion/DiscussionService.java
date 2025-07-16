@@ -28,7 +28,11 @@ public class DiscussionService {
     }
 
     public List<DiscussionEntity> findAll() {
-        return discussionRepository.findAll();
+      return discussionRepository.findAll();
+    }
+
+    public void deleteDiscussion(Long discussionId) {
+        discussionRepository.deleteById(discussionId);
     }
 
     public void voteDiscussion(Long discussionId, Boolean agree) {

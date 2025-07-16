@@ -27,6 +27,11 @@ public class DiscussionController {
     public void voteDiscussion(@PathVariable Long discussionId, @RequestParam Boolean agree) {
         discussionService.voteDiscussion(discussionId, agree);
     }
+
+    @DeleteMapping("/{discussion-id}")
+    public void deleteDiscussion(@PathVariable("discussion-id") Long discussionId) {
+        discussionService.deleteDiscussion(discussionId);
+    }
 }
 
 
