@@ -31,5 +31,8 @@ public class DiscussionEntity {
     public LocalDate createdAt;
 
     @Column(nullable = false)
-    public String tag;
+    public String category;
+
+    @Column(nullable = false)
+    public Long viewCount;
 }

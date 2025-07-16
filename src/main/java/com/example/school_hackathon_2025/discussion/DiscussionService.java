@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @RequiredArgsConstructor
 @Service
@@ -17,10 +18,15 @@ public class DiscussionService {
                         .writer(dto.writer)
                         .title(dto.title)
                         .content(dto.content)
-                        .tag(dto.category)
+                        .category(dto.category)
                         .createdAt(LocalDate.now())
                         .build();
 
         discussionRepository.save(entity);
     }
+    public List<DiscussionEntity> findAll() {
+      return discussionRepository.findAll();
+
+    }
+
 }

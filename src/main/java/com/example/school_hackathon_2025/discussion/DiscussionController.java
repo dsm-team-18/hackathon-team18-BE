@@ -1,10 +1,9 @@
 package com.example.school_hackathon_2025.discussion;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,4 +17,10 @@ public class DiscussionController {
         discussionService.createDiscussion(dto);
     }
 
+    @GetMapping
+    public List<DiscussionEntity> findAll() {
+       return discussionService.findAll();
+    }
 }
+
+
