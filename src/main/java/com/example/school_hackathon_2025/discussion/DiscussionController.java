@@ -18,9 +18,8 @@ public class DiscussionController {
     }
 
     @GetMapping
-    public List<DiscussionEntity> findAll() {
+    public List<DiscussionResponse> findAll() {
         return discussionService.findAll();
-
     }
 
     @PatchMapping("/vote/{discussionId}")

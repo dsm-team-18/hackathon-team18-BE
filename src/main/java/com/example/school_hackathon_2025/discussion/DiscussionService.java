@@ -27,8 +27,8 @@ public class DiscussionService {
         discussionRepository.save(entity);
     }
 
-    public List<DiscussionEntity> findAll() {
-      return discussionRepository.findAll();
+    public List<DiscussionResponse> findAll() {
+        return discussionRepository.findAll().stream().map(DiscussionResponse::of).toList();
     }
 
     public void deleteDiscussion(Long discussionId) {
