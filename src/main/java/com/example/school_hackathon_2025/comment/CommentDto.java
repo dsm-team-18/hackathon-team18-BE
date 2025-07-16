@@ -23,5 +23,4 @@ public class CommentDto {
 
     @Valid
     public List<ReferenceDto> references;
-
 }
