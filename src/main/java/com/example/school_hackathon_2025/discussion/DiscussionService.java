@@ -31,6 +31,13 @@ public class DiscussionService {
         return discussionRepository.findAll().stream().map(DiscussionResponse::of).toList();
     }
 
+    public DiscussionResponse findDiscussion(Long discussionId) {
+
+        DiscussionEntity discussion = discussionRepository.findDiscussionEntityById(discussionId);
+
+        return DiscussionResponse.of(discussion);
+    }
+
     public void deleteDiscussion(Long discussionId) {
         discussionRepository.deleteById(discussionId);
     }

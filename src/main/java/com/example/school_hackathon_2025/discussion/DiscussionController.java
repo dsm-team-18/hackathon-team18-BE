@@ -31,9 +31,9 @@ public class DiscussionController {
     public void deleteDiscussion(@PathVariable("discussion-id") Long discussionId) {
         discussionService.deleteDiscussion(discussionId);
     }
+
+    @GetMapping("/{discussion-id}")
+    public DiscussionResponse findDiscussion(@PathVariable("discussion-id") Long discussionId) {
+        return discussionService.findDiscussion(discussionId);
+    }
 }
-
-
-
-
-
