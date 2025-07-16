@@ -34,5 +34,5 @@ public class DiscussionEntity {
     public String category;
 
     @Column(nullable = false)
-    public Long viewCount;
+    public Integer viewCount = 0;
 }
