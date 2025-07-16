@@ -7,7 +7,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/discussion")
+@RequestMapping("/discussions")
 public class DiscussionController {
 
     private final DiscussionService discussionService;
@@ -17,12 +17,12 @@ public class DiscussionController {
         discussionService.createDiscussion(dto);
     }
 
-    @GetMapping
+    @GetMapping("/list")
     public List<DiscussionResponse> findAll() {
         return discussionService.findAll();
     }
 
-    @PatchMapping("/vote/{discussionId}")
+    @PatchMapping("/{discussionId}/vote")
     public void voteDiscussion(@PathVariable Long discussionId, @RequestParam Boolean agree) {
         discussionService.voteDiscussion(discussionId, agree);
     }

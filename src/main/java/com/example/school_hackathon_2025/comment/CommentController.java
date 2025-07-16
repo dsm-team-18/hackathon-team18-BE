@@ -8,25 +8,23 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/comment")
+@RequestMapping
 public class CommentController {
 
     private final CommentService commentService;
 
-    @PostMapping
+    @PostMapping("/discussion/{discussion-id}/comments")
     public void createComment(@RequestBody @Valid CommentDto commentDto) {
         commentService.createComment(commentDto);
     }
 
-    @GetMapping
-    public List<CommentEntity> findAll() {
+    @GetMapping("/comments")
+    public List<CommentResponse> findAll() {
         return commentService.findAll();
     }
 
-    @PatchMapping("/{comment-id}")
+    @PatchMapping("/comments/{comment-id}/like")
     public void likeComment(@PathVariable("comment-id") Long commentId) {
         commentService.likeComment(commentId);
     }
-
-
 }

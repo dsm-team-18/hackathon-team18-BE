@@ -21,6 +21,9 @@ public class CommentDto {
     @NotNull
     public String content;
 
+    @NotNull
+    public Agreement agree;
+
     @Valid
     public List<ReferenceDto> references;
 }

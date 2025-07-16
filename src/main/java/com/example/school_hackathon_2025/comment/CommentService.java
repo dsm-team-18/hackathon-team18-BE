@@ -2,10 +2,12 @@ package com.example.school_hackathon_2025.comment;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @RequiredArgsConstructor
+@Transactional
 @Service
 public class CommentService {
 
@@ -31,9 +33,22 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-    public List<CommentEntity> findAll() {
+    public List<CommentResponse> findAll() {
         List<CommentEntity> comments = commentRepository.findAll();
-        return comments;
+        return comments.stream()
+                .map(comment -> CommentResponse.builder()
+                        .id(comment.id)
+                        .writer(comment.writer)
+                        .content(comment.content)
+                        .likeCount(comment.likeCount)
+                        .references(comment.references.stream().map(
+                                reference -> ReferenceResponse.builder()
+                                        .name(reference.name)
+                                        .url(reference.url)
+                                        .build()
+                        ).toList())
+                        .build())
+                .toList();
     }
 
     public void likeComment(long commentId) {

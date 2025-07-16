@@ -29,6 +29,9 @@ public class CommentEntity {
     @Column(nullable = false)
     public Long likeCount;
 
+    @Column(nullable = false)
+    public Agreement agree;
+
     @ManyToOne
     @JoinColumn(name = "discussion_id", nullable = false)
     public DiscussionEntity discussion;

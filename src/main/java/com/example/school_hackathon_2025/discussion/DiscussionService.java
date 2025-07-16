@@ -35,6 +35,9 @@ public class DiscussionService {
 
         DiscussionEntity discussion = discussionRepository.findDiscussionEntityById(discussionId);
 
+        discussion.viewCount++;
+        discussionRepository.save(discussion);
+
         return DiscussionResponse.of(discussion);
     }
 

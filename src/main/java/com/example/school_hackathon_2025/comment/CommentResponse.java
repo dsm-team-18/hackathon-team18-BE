@@ -9,6 +9,8 @@ import java.util.List;
 @AllArgsConstructor
 public class CommentResponse {
 
+    public Long id;
+
     public String writer;
 
     public String content;
