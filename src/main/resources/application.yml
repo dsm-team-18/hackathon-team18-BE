@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: school_hackathon_2025
+
+  datasource:
+    username: root
+    password: 1234
+    url: jdbc:mysql://localhost:3306/hack
+
+  jpa:
+    hibernate:
+      ddl-auto: update
