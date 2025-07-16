@@ -35,4 +35,13 @@ public class CommentService {
         List<CommentEntity> comments = commentRepository.findAll();
         return comments;
     }
+
+    public void likeComment(long commentId) {
+
+        CommentEntity comment = commentRepository.findCommentById(commentId);
+
+        comment.likeCount++;
+        commentRepository.save(comment);
+
+    }
 }

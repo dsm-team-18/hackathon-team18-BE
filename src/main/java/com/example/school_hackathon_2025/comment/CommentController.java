@@ -23,4 +23,10 @@ public class CommentController {
         return commentService.findAll();
     }
 
+    @PatchMapping("/{comment-id}")
+    public void likeComment(@PathVariable("comment-id") Long commentId) {
+        commentService.likeComment(commentId);
+    }
+
+
 }
