@@ -1,5 +1,6 @@
 package com.example.school_hackathon_2025.discussion;
 
+import com.example.school_hackathon_2025.comment.CommentEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,8 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -35,4 +38,7 @@ public class DiscussionEntity {
 
     @Column(nullable = false)
     public Integer viewCount = 0;
+
+    @OneToMany(mappedBy = "discussion")
+    public List<CommentEntity> comments = new ArrayList<>();
 }

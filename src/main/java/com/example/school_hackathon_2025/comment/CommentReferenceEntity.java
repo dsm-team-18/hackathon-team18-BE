@@ -23,6 +23,6 @@ public class CommentReferenceEntity {
     public String url;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "comment_id", nullable = false)
     public CommentEntity comment;
 }

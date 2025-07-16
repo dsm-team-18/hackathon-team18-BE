@@ -1,5 +1,6 @@
 package com.example.school_hackathon_2025.comment;
 
+import com.example.school_hackathon_2025.discussion.DiscussionEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,10 @@ public class CommentEntity {
     @Column(nullable = false, length = 1000)
     public String content;
 
-    @OneToMany
-    @JoinColumn
-    public List<CommentReferenceEntity> references = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "discussion_id", nullable = false)
+    public DiscussionEntity discussion;
+
+    @OneToMany(mappedBy = "comment")
+    public List<CommentReferenceEntity> references = new ArrayList<>();x
 }
