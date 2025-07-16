@@ -31,5 +31,5 @@ public class CommentEntity {
     public DiscussionEntity discussion;
 
     @OneToMany(mappedBy = "comment")
-    public List<CommentReferenceEntity> references = new ArrayList<>();x
+    public List<CommentReferenceEntity> references = new ArrayList<>();
 }

@@ -37,8 +37,15 @@ public class DiscussionEntity {
     public String category;
 
     @Column(nullable = false)
+    public Integer agreeCount = 0;
+
+    @Column(nullable = false)
+    public Integer disagreeCount = 0;
+
+    @Column(nullable = false)
     public Integer viewCount = 0;
 
     @OneToMany(mappedBy = "discussion")
     public List<CommentEntity> comments = new ArrayList<>();
+
 }

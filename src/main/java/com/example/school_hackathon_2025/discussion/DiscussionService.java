@@ -1,5 +1,6 @@
 package com.example.school_hackathon_2025.discussion;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -7,12 +8,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RequiredArgsConstructor
+@Transactional
 @Service
 public class DiscussionService {
 
     private final DiscussionRepository discussionRepository;
 
-    public void createDiscussion (DiscussionDto dto) {
+    public void createDiscussion(DiscussionDto dto) {
         DiscussionEntity entity =
                 DiscussionEntity.builder()
                         .writer(dto.writer)
@@ -24,9 +26,20 @@ public class DiscussionService {
 
         discussionRepository.save(entity);
     }
-    public List<DiscussionEntity> findAll() {
-      return discussionRepository.findAll();
 
+    public List<DiscussionEntity> findAll() {
+        return discussionRepository.findAll();
     }
 
+    public void voteDiscussion(Long discussionId, Boolean agree) {
+        DiscussionEntity discussion = discussionRepository.findById(discussionId).orElseThrow();
+
+        if (agree) {
+            discussion.agreeCount++;
+        } else {
+            discussion.disagreeCount++;
+        }
+
+        discussionRepository.save(discussion);
+    }
 }
