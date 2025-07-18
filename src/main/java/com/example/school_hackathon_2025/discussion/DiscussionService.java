@@ -17,10 +17,13 @@ public class DiscussionService {
     public void createDiscussion(DiscussionDto dto) {
         DiscussionEntity entity =
                 DiscussionEntity.builder()
-                        .writer(dto.writer)
+                        .writer(dto.name)
                         .title(dto.title)
                         .content(dto.content)
                         .category(dto.category)
+                        .agreeCount(0)
+                        .disagreeCount(0)
+                        .viewCount(0)
                         .createdAt(LocalDate.now())
                         .build();
 

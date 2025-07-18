@@ -16,8 +16,9 @@ public class CommentService {
     public void createComment(CommentDto commentDto) {
         CommentEntity comment =
                 CommentEntity.builder()
-                        .writer(commentDto.getWriter())
+                        .writer(commentDto.getName())
                         .content(commentDto.getContent())
+                        .likeCount(0L)
                         .build();
 
         comment.references.addAll(

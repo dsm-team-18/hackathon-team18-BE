@@ -16,7 +16,7 @@ import java.util.List;
 public class CommentDto {
 
     @NotNull
-    public String writer;
+    public String name;
 
     @NotNull
     public String content;

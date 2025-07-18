@@ -27,7 +27,7 @@ public class CommentEntity {
     public String content;
 
     @Column(nullable = false)
-    public Long likeCount;
+    public Long likeCount = 0L;
 
     @Column(nullable = false)
     public Agreement agree;

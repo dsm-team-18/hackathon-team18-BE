@@ -17,5 +17,7 @@ public class CommentResponse {
 
     public Long likeCount;
 
+    public Agreement agree;
+
     public List<ReferenceResponse> references;
 }

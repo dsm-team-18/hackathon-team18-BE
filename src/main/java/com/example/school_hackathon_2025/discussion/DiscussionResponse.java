@@ -36,6 +36,7 @@ public class DiscussionResponse {
                                         .writer(commentEntity.writer)
                                         .content(commentEntity.content)
                                         .likeCount(commentEntity.likeCount)
+                                        .agree(commentEntity.agree)
                                         .references(commentEntity.references.stream().map(
                                                 commentReferenceEntity -> ReferenceResponse.builder()
                                                         .name(commentReferenceEntity.name)
